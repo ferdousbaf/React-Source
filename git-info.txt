@@ -1,0 +1,125 @@
+
+বিগিনার গাইড: Git এবং GitHub ব্যবহার করে প্রজেক্ট আপলোড করার পূর্ণাঙ্গ নোট
+https://youtu.be/UUzX49Ft9G4?list=PLNMnAEqLBwmqnr-hhIa2z-2janfklDV4A
+Git software download and install: fot gitub: https://git-scm.com/
+gitub.com->create  account: username/email and password -> 
+
+
+ধাপ ১: প্রাথমিক প্রস্তুতি (সফটওয়্যার ও অ্যাকাউন্ট)
+
+কম্পিউটার থেকে কোড গিটহাবে পাঠানোর জন্য দুটি জিনিস প্রয়োজন— আপনার পিসিতে Git সফটওয়্যার এবং অনলাইনে একটি GitHub অ্যাকাউন্ট।
+• Git ডাউনলোড ও ইনস্টল: প্রথমে Git অফিশিয়াল ওয়েবসাইট( https://git-scm.com/ ) থেকে আপনার অপারেটিং সিস্টেম (Windows/Mac) অনুযায়ী সফটওয়্যারটি ডাউনলোড করে সাধারণ সফটওয়্যারের মতো ইনস্টল করে নিন।
+• GitHub অ্যাকাউন্ট তৈরি: ব্রাউজারে GitHub.com ওয়েবসাইটে গিয়ে Sign up বাটনে ক্লিক করুন। আপনার ইমেইল, একটি পাসওয়ার্ড এবং ইউনিক ইউজারনেম দিয়ে অ্যাকাউন্ট খুলে নিন।
+
+পদ্ধতি ক: টার্মিনাল কমান্ড ব্যবহার করে (সবচেয়ে কার্যকরী)
+
+অংশ ক: গিটহাবে অনলাইন ফোল্ডার (Repository) তৈরি করা
+
+ব্রাউজারে আপনার গিটহাব অ্যাকাউন্টে (Sign in) লগ-ইন করুন।
+উপরের ডানদিকে + আইকনে ক্লিক করে New repository সিলেক্ট করুন এবং প্রজেক্টের একটি নাম দিয়ে Create repository বাটনে ক্লিক করুন। 
+নামের মাঝে স্পেস দেবেন না, প্রয়োজনে হাইফেন (-) ব্যবহার করুন
+Owner:ferdousbaf -> repository name: React-Source-> make it public, click button Create repository;
+then ck new page as https://github.com/ferdousbaf/React-Source 
+
+
+•  নতুন রিপোজিটরি নিজের কম্পিউটার তৈরি:
+  যে নামে রিপোজিটরি তৈরী করা হয়েছে ঠিক একই নামে আগে কম্পিউটার- যে কোন ড্রাইভে নাম লিখুনঃ 
+  repository name 'React-Source' # Owner:ferdousbaf -> repository name: React-Source->
+  computer Name 'React-Source'   # I:\react-app-2027\React-Source
+  -open this folder with vs code. 
+  like: MD FERDOUS ALI@Ferdous UCRT64 /i/react-app-2027/React-Source
+  -open terminal and select default Profile for bash from the teminal down arrow mark 
+
+• ইনস্টলেশন চেক করা: VS Code ওপেন করে কিবোর্ড থেকে Ctrl + ~ (কিবোর্ডের Tab বাটনের উপরের বাটন) চেপে টার্মিনাল (Terminal) চালু করুন। নিচের কমান্ডটি লিখে Enter চাপুন:
+git --version
+
+(যদি ভার্সন নম্বর দেখায় তবে গিট ঠিকমতো ইনস্টল হয়েছে। পুরাতন ভার্সন আপডেট করতে চাইলে লিখুন: git update-git-for-windows)
+
+ধাপ ২: পিসির সাথে GitHub অ্যাকাউন্টের পরিচয় করিয়ে দেওয়া (শুধু প্রথমবার)- গিট (Git) সেটআপ করা
+
+আপনার পিসি থেকে কে কোড পাঠাচ্ছে তা গিটহাবকে চিনিয়ে দেওয়ার জন্য নিচের কমান্ড দুটি টার্মিনালে একে একে রান করুন (এটি জীবনে একবার করলেই চলে):
+
+git config --global user.name "আপনার-গিটহাব-ইউজারনেম"
+git config --global user.email "আপনার-গিটহাব-ইমেইল"
+
+
+উদাহরণ:
+
+• ইউজার নেম ও ইমেইল সেট করা: টার্মিনালে নিচের দুটি কমান্ড দিয়ে আপনার গিটহাব অ্যাকাউন্টের তথ্য সেট করুন।
+git config --global user.name "ferdousbaf"
+git config --global user.email "ferdousbaf461@gmail.com"
+
+(সতর্কতা: এখানে অবশ্যই আপনার নিজের গিটহাব অ্যাকাউন্টের ইউজারনেম এবং ইমেইল ব্যবহার করবেন।)
+
+অংশ খ: VS Code থেকে কোড আপলোড করা
+
+১. আপনার প্রজেক্ট ফোল্ডারটি VS Code-এ ওপেন করুন এবং টার্মিনাল (Ctrl + ~) চালু করুন (5:29)।
+২. নিচের কমান্ডগুলো সিরিয়াল অনুযায়ী একটির পর একটি কপি করে টার্মিনালে পেস্ট করুন এবং Enter চাপুন:
+
+echo "# React-Source" >> README.md      (ফোল্ডারটিতে একটি .md file তৈরী করা)
+git init                                (ফোল্ডারটিতে গিট চালু করা)
+git add .                               (ফোল্ডারের সব ফাইল আপলোডের জন্য প্রস্তুত করা)
+git commit -m "git-info file uploaded"  (ফাইলগুলো সম্পর্কে একটি ছোট নোট লিখে সেভ করা )
+git branch -M main                      (মূল ফোল্ডার বা ব্রাঞ্চের নাম main ঠিক করা)
+git remote add origin https://github.com/ferdousbaf/React-Source.git (পিসির ফোল্ডারটির সাথে গিটহাবের অনলাইন লিংক যুক্ত করা)
+git push -u origin main                 (সব ফাইল গিটহাবে পাঠিয়ে দেওয়া)
+
+
+…or push an existing repository from the command line
+git remote add origin https://github.com/ferdousbaf/React-Source.git
+git branch -M main
+git push -u origin main
+
+
+
+
+৩. অথেনটিকেশন (Sign in): প্রথমবার git push কমান্ড দেওয়ার পর স্ক্রিনে একটি পপ-আপ উইন্ডো আসবে। 
+সেখানে Sign in with your browser বাটনে ক্লিক করে অনুমতি (Authorize) দিলেই আপনার কোড গিটহাবে আপলোড হয়ে যাবে
+
+
+ধাপ ৫: নতুন ফোল্ডার থেকে শুধু একটি নির্দিষ্ট .txt ফাইল পাঠানোর নিয়ম
+
+For NEW FOLDER: নতুন কোনো ফোল্ডারে থাকা শুধু একটি ফাইল গিটহাবে পাঠাতে চাইলে:
+১. গিটহাবে লগ-ইন করে একটি নতুন রিপোজিটরি (যেমন: my-text-files) তৈরি করুন।
+২. ফোল্ডারটি VS Code-এ ওপেন করে টার্মিনালে নিচের কমান্ডগুলো রান করুন:
+
+git init
+git add git-info.txt
+git commit -m "Upload text file"
+git branch -M main
+git remote add origin https://github.com/ferdousbaf/React-Source.git
+git push -u origin main
+
+
+৩. যদি ফোল্ডারটি আগে থেকেই গিটাবের সাথে যুক্ত থাকে
+
+আপনি যদি ইতিমধ্যে কোনো প্রজেক্ট গিটাবে আপলোড করে থাকেন এবং এখন সেই ফোল্ডারে নতুন একটি .txt ফাইল (যেমন notes.txt) যোগ করতে চান, তবে নিচের কমান্ডগুলো রান করুন।
+• ফাইল তৈরি করা: VS Code-এ আপনার প্রজেক্ট ফোল্ডারের ভেতরে git-info.txt নামে ফাইলটি তৈরি করে কিছু লিখুন এবং সেভ (Ctrl + S) করুন।
+• টার্মিনালে কমান্ড রান করা: টার্মিনাল (Ctrl + ~) ওপেন করে নিচের তিনটি কমান্ড একে একে দিন।bash
+
+git add git-info.txt
+git commit -m "Added git-info.txt file"
+git push
+
+• (নোট: আপনি যদি নির্দিষ্ট একটি ফাইলের বদলে ফোল্ডারের সব ফাইল একসাথে পাঠাতে চান, তবে git add git-info.txt-এর বদলে git add . লিখবেন।)
+
+
+ধাপ ৪: পুরাতন প্রজেক্টে নতুন ফাইল যোগ বা কোড পরিবর্তন করলে কী করবেন?
+
+আপনি যদি ইতিমধ্যে কোনো প্রজেক্ট গিটহাবে আপলোড করে থাকেন এবং পরে সেখানে নতুন কোনো ফাইল (যেমন: git-info.txt) যোগ করেন বা কোড এডিট করেন, তবে নতুন করে আর git init বা remote add দিতে হবে না।
+ফাইলটি সেভ (Ctrl + S) করে টার্মিনালে শুধু নিচের ৩টি কমান্ড রান করলেই আপডেট হয়ে যাবে:
+
+git add .
+git commit -m "Added git-info.txt file"
+git push
+
+(নোট: আপনি যদি সব ফাইলের বদলে নির্দিষ্ট একটি ফাইল পাঠাতে চান, তবে git add . এর বদলে git add git-info.txt লিখবেন।)
+
+
+গুরুত্বপূর্ণ সতর্কতা
+
+• ফাইলের সাইজ: গিটাবে সাধারণ কমান্ডের মাধ্যমে সর্বোচ্চ ১০০ মেগাবাইট (100 MB) পর্যন্ত একটি ফাইল আপলোড করা যায়।
+ সাধারণ .txt ফাইল কয়েক কিলোবাইট বা মেগাবাইটের হয়, তাই কোনো সমস্যা হবে না।
+• ফাইলের নামে স্পেস: ফাইলের নামে স্পেস থাকলে (যেমন my note.txt) কমান্ড লেখার সময় ফাইলের নামটি ডাবল কোটেশনের ভেতরে লিখতে হবে। 
+যেমন: git add "my note.txt"।
+• লিংক কপি করার সতর্কতা: গিটহাব থেকে লিংক কপি করার সময় খেয়াল রাখবেন লিংকের শেষে যেন .git লেখাটি থাকে। যেমন: https://github.com।
